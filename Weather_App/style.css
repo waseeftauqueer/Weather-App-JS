@@ -1,0 +1,248 @@
+/* Importing google fonts - montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #97D2FB, #83BCFF);
+    padding: 15px;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Adjusted opacity for better readability */
+    border-radius: 16px;
+    max-width: 425px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.search-section {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    background-color: #E1EFF6;
+}
+
+.search-section .location-button {
+    font-size: 1.3rem;
+    color: #333; /* Darker color for better visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #80FFE8;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.search-section .location-button:hover {
+    color: #fff;
+    background-color: #80FFE8;
+    border-color: #80FFE8;
+}
+
+.search-section .input-wrapper {
+    height: 54px;
+    width: 100%;
+    position: relative;
+}
+
+.search-section .input-wrapper span {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    pointer-events: none;
+    color: #333; /* Darker color for better visibility */
+    transform: translateY(-50%);
+}
+
+.search-section .search-input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 20px 0 50px;
+    border-radius: 8px;
+    border: 2px solid #80FFE8;
+    color: #333; /* Darker color for better visibility */
+    transition: 0.1s ease;
+}
+
+.search-section .search-input:focus {
+    border-color: #80FFE8;
+}
+
+.weather-section {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.no-results .title {
+    margin: 25px 0 15px;
+    color: #333; /* Darker color for better visibility */
+}
+
+.no-results .message {
+    font-weight: 500;
+    color: #333; /* Darker color for better visibility */
+}
+
+.no-results {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    text-align: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body.show-no-results .no-results {
+    display: flex;
+}
+
+body.show-no-results .weather-section {
+    opacity: 0;
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 50px;
+    background: #E1EFF6;
+}
+
+.current-weather .weather-icon {
+    width: 140px;
+    aspect-ratio: 1;
+    transition: transform 0.3s ease;
+}
+
+.current-weather .weather-icon:hover {
+    transform: scale(1.1);
+}
+
+.current-weather .temperature {
+    font-size: 3.5rem;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    color: #333; /* Darker color for better visibility */
+}
+
+.current-weather .temperature span {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.current-weather .description {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #83BCFF; /* Adjusted color for better contrast */
+}
+
+.hourly-weather {
+    padding: 20px;
+    background-color: #E1EFF6;
+    border-top: 2px solid #80FFE8;
+}
+
+.hourly-weather .weather-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    padding-bottom: 16px;
+    margin-bottom: -16px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    padding-top: 10px;
+}
+
+.hourly-weather:hover .weather-list {
+    scrollbar-color: #83BCFF transparent;
+}
+
+.hourly-weather .weather-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.hourly-weather .weather-item .weather-icon {
+    width: 35px;
+    aspect-ratio: 1;
+}
+
+/* Enhancements for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .search-section .search-input {
+        font-size: 0.9rem;
+    }
+
+    .current-weather .temperature {
+        font-size: 3rem;
+    }
+
+    .hourly-weather .weather-list {
+        gap: 20px;
+    }
+}
+
+/* Mobile-first design for extra small devices */
+@media (max-width: 576px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .search-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .current-weather {
+        padding: 20px 0 30px;
+    }
+
+    .hourly-weather {
+        padding: 16px 10px;
+    }
+
+    .hourly-weather .weather-list {
+        gap: 15px;
+    }
+
+    .hourly-weather .weather-item .weather-icon {
+        width: 30px;
+    }
+}
